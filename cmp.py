@@ -7,7 +7,7 @@ def compare_files(output_file_path, test_file_path):
             output_file_content = output_file.read()
         with open(test_file_path, 'r') as test_file:
             test_file_content = test_file.read().rstrip()
-        test_file_content = test_file_content[3:]
+        # test_file_content = test_file_content[3:]
         print(f"Output file content: {output_file_content}")
         print(f"Test file content: {test_file_content}")
         return output_file_content == test_file_content

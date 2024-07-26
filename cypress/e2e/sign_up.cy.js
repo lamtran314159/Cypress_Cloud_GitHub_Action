@@ -25,7 +25,7 @@ const TESTEMAIL = `${Cypress.env(
 )}.${TAG}@inbox.testmail.app`;
 const NameSpace = Cypress.env("TESTMAIL_NAMESPACE");
 const apiKey = Cypress.env("TESTMAIL_APIKEY");
-describe("Forgot Password scenario", () => {
+describe("Sign up scenario", () => {
   before(() => {});
   const TempEmail = TAG;
   let resetPasswordLink = "";
