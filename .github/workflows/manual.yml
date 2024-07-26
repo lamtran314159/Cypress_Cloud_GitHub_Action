@@ -1,0 +1,26 @@
+name: QAAutomationLabs.com Parallel Cypress Tests
+
+on: [push]
+
+jobs:
+ test:
+   name: Cypress Cloud GitHub
+   runs-on: ubuntu-latest
+   container: cypress/browsers:node18.12.0-chrome107
+   strategy:
+     fail-fast: false
+     matrix:
+       containers: [1,2,3,4]
+   steps:
+     - name: Checkout
+       uses: actions/checkout@v4
+
+     - name: Cypress Cloud GitHub
+       uses: cypress-io/github-action@v6
+       with:
+         record: true
+         parallel: true
+         group: 'QAAutomationLabs'
+       env:
+         CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
